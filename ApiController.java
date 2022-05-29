@@ -19,21 +19,19 @@ public class ApiController {
     public ApiController(HotelServiceImplementation hotelServiceImplementation) {
         this.hotelServiceImplementation = hotelServiceImplementation;
     }
+    
+    public String romoteTesting() {
+        return "testing from remote repository";   
+    }
 
     @GetMapping
-    public ResponseEntity<Collection<HotelResponseDTO>> getAllHotels() {
+    public ResponseEntity<Collection<HotelResponseDTO>> findAllHotels() {
         return new ResponseEntity<>(hotelServiceImplementation.findAll(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<ApiResponse> saveHotel(@RequestBody HotelRequestDTO hotelRequest) {
         return new ResponseEntity<>(hotelServiceImplementation.saveHotel(hotelRequest), HttpStatus.CREATED);
-    }
-
-    @PutMapping
-    public ResponseEntity<ApiResponse> updateHotel(@RequestBody HotelRequestDTO hotelRequest,
-                                                   @RequestParam(value = "hotelCode") String hotelCode) {
-        return new ResponseEntity<>(hotelServiceImplementation.updateHotelByHotelCode(hotelCode, hotelRequest), HttpStatus.OK);
     }
 
     @DeleteMapping
