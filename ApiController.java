@@ -19,10 +19,6 @@ public class ApiController {
     public ApiController(HotelServiceImplementation hotelServiceImplementation) {
         this.hotelServiceImplementation = hotelServiceImplementation;
     }
-    
-    public String romoteTesting() {
-        return "testing from remote repository";   
-    }
 
     @GetMapping
     public ResponseEntity<Collection<HotelResponseDTO>> findAllHotels() {
