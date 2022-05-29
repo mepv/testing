@@ -22,6 +22,7 @@ public class ApiController {
 
     @GetMapping
     public ResponseEntity<Collection<HotelResponseDTO>> findAllHotels() {
+        // this method shouldn't be deleted
         return new ResponseEntity<>(hotelServiceImplementation.findAll(), HttpStatus.OK);
     }
 
